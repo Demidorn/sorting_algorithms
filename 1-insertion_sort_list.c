@@ -11,9 +11,8 @@
 void insertion_sort_list(listint_t **list)
 {
 	listint_t *temp, *rev;
-	int i, j;
+	int i = 0, j = 0;
 
-	i = j = 0;
 	if (!list)
 		return;
 	temp = *list;
@@ -43,7 +42,7 @@ void insertion_sort_list(listint_t **list)
 			}
 		}
 		if (!i)
-			temp = temp->next;
+		temp = temp->next;
 		i = 0;
 	}
 }
@@ -55,18 +54,18 @@ void insertion_sort_list(listint_t **list)
  * Return: swap of two nodes
  */
 
-void swap_nodes(listint_t **list, listint_t *temp)
+void swap_nodes(listint_t *temp, listint_t **list)
 {
 	listint_t *node1, *node1_next, *node1_prev = NULL;
-	listint_t *node2, *node2_next, *node2_prev;
+	listint_t *node2, *node2_next = NULL, *node2_prev;
 
 	node1 = temp;
 	node2 = temp->next;
+	node1_next = node1->next;
 	if (node1->prev)
 		node1_prev = node1->prev;
 	else
 		node1_prev = NULL;
-
 	if (node2->next)
 		node2_next = node2->next;
 	else
